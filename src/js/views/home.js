@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { People } from "../component/people";
 import { Planets } from "../component/planets";
+import { Vehicles } from "../component/vehicles";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -11,7 +12,7 @@ export const Home = () => {
   return (
     <div>
       <section>
-        <h2>People</h2>
+        <h2>Characters</h2>
         <div>
           {store.people.map((character, index) => {
             return <People key={index} char={character} />;
@@ -27,6 +28,16 @@ export const Home = () => {
           })}
         </div>
       </section>
+
+      <section>
+        <h2>Vehicles</h2>
+        <div>
+          {store.vehicles.map((ship, index) => {
+            return <Vehicles key={index} vehicle={ship} />;
+          })}
+        </div>
+      </section>
+
     </div>
   );
 };

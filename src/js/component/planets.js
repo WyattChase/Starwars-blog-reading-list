@@ -16,7 +16,7 @@ export const Planets = ({ planet }) => {
       ></img>
       <div className="card-body">
         <h5 className="card-title">{planet.name}</h5>
-        <div>Diameter: {planet.diameter} km</div>
+        <div>Diameter: {planet.diameter} </div>
         <div>Population: {planet.population}</div>
         <div>Climate: {planet.climate}</div>
         <div className="options d-flex justify-content-between">

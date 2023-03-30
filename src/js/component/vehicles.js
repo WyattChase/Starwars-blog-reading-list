@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const People = ({ char }) => {
+export const Vehicles = ({ vehicle }) => {
   const { store, actions } = useContext(Context);
-  let favs = store.favorites.find((fav) => fav.name == char.name);
+  let favs = store.favorites.find((fav) => fav.name == vehicle.name);
 
   return (
     <div className="card " style={{ width: "18rem", display: "inline-block" }}>
@@ -15,17 +15,17 @@ export const People = ({ char }) => {
         alt="Card image cap"
       ></img>
       <div className="card-body">
-        <h5 className="card-title">{char.name}</h5>
-        <div>Gender: {char.gender}</div>
-        <div>Height: {char.height} cm</div>
-        <div>Birth Year: {char.birth_year}</div>
+        <h5 className="card-title">{vehicle.name}</h5>
+        <div>Model: {vehicle.model}</div>
+        <div>Class: {vehicle.vehicle_class} </div>
+        <div>Length: {vehicle.length}</div>
         <div className="options d-flex justify-content-between">
-          <a href={char.url} className="btn btn-primary">
+          <a href={vehicle.url} className="btn btn-primary">
             Learn more!
           </a>
           <span
             onClick={() =>
-              favs ? actions.deleteFav(char.name) : actions.addFav(char)
+              favs ? actions.deleteFav(vehicle.name) : actions.addFav(vehicle)
             }
           >
             <i className={favs ? "fas fa-heart" : "far fa-heart"}></i>
@@ -36,6 +36,6 @@ export const People = ({ char }) => {
   );
 };
 
-People.propTypes = {
+Vehicles.propTypes = {
   match: PropTypes.object,
 };
