@@ -6,6 +6,14 @@ import { Context } from "../store/appContext";
 export const Vehicles = ({ vehicle }) => {
   const { store, actions } = useContext(Context);
   let favs = store.favorites.find((fav) => fav.name == vehicle.name);
+  const [favVehicle, setVehicle] = useState([]); //UseState run the function from planets (API)
+  
+  
+  
+  useEffect(() => {
+    setVehicle(store.favVehicleData)
+    }, [store.favVehicleData] // In Here we call out again to keep stored the data on re-load the page
+    )
 
   return (
     <div className="card " style={{ width: "18rem", display: "inline-block" }}>
@@ -23,13 +31,8 @@ export const Vehicles = ({ vehicle }) => {
           <a href={vehicle.url} className="btn btn-primary">
             Learn more!
           </a>
-          <span
-            onClick={() =>
-              favs ? actions.deleteFav(vehicle.name) : actions.addFav(vehicle)
-            }
-          >
-            <i className={favs ? "fas fa-heart" : "far fa-heart"}></i>
-          </span>
+          <a onClick={() => actions.addFavorites(vehicle)} className={favs ? "fas fa-heart" : "far fa-heart"}>
+          </a>
         </div>
       </div>
     </div>

@@ -1,26 +1,62 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
-	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-				<a class="active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  const { store, actions } = useContext(Context);
+  let favs = store.favorites;
+
+  return (
+    <nav className="navbar navbar-light bg-light mb-3">
+      <Link to="/">
+        <span className="navbar-brand mb-0 h1">React Boilerplate</span>
+      </Link>
+      <div className="ml-auto">
+        <Link to="/demo">
+          <a
+            class="active dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             Favorites
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></hr></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-				</Link>
-				
-			</div>
-		</nav>
-	);
+          <div className="dropdown">
+            <button
+              className="btn btn-warning dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="true"
+            >
+              <span className="fa fa-heart" />{" "}
+              {`Favorites (${store.favorites.length})`}
+            </button>{" "}
+            {/* Display a Variable counting items inside of the store.favorites */}
+            <div
+              className="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="dropdownMenuButton"
+            >
+              {store.favorites.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <a className="align-middle dropdown-item">
+                      {item.name}
+                      <span
+                        onClick={() => actions.removeFavorites(index)}
+                        className="fa fa-trash"
+                      ></span>
+                    </a>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </Link>
+      </div>
+    </nav>
+  );
 };

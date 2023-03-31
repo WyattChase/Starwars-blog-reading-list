@@ -6,6 +6,14 @@ import { Context } from "../store/appContext";
 export const People = ({ char }) => {
   const { store, actions } = useContext(Context);
   let favs = store.favorites.find((fav) => fav.name == char.name);
+  const [favPeople, setPeople] = useState([]); //UseState run the function from planets (API)
+  
+  
+  
+  useEffect(() => {
+    setPeople(store.favPeopleData)
+    }, [store.favPeopleData] // In Here we call out again to keep stored the data on re-load the page
+    )
 
   return (
     <div className="card " style={{ width: "18rem", display: "inline-block" }}>
@@ -23,13 +31,7 @@ export const People = ({ char }) => {
           <a href={char.url} className="btn btn-primary">
             Learn more!
           </a>
-          <span
-            onClick={() =>
-              favs ? actions.deleteFav(char.name) : actions.addFav(char)
-            }
-          >
-            <i className={favs ? "fas fa-heart" : "far fa-heart"}></i>
-          </span>
+           <a onClick={() => actions.addFavorites(char)} className={favs ? "fas fa-heart" : "far fa-heart"}></a>
         </div>
       </div>
     </div>

@@ -27,6 +27,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  console.log("Looks like there was a problem: \n", error);
 			});
 		},
+
+		addFavorites: (item) => { //Favorites Function
+			const store = getStore(); //Access to the Store
+			store.favorites.push(item) //Push Item
+			setStore(store) //Save the Changes under Store (Update the State)
+			},
   
 		addFav: (newFav) => {
 		  let newFavorites = getStore().favorites;
@@ -34,6 +40,14 @@ const getState = ({ getStore, getActions, setStore }) => {
   
 		  setStore({ favorites: newFavorites });
 		},
+
+		removeFavorites: index => { //Remove Favorites Function
+			const store = getStore();
+			let updatedList = store.favorites.filter(
+			(item, i) => index != i
+			);
+			setStore({favorites:updatedList})
+			},
   
 		deleteFav: (name) => {
 		  let filtered = getStore().favorites.filter((item) => item.name != name);
