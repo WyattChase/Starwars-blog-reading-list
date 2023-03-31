@@ -2,21 +2,20 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Planets } from "../component/planets";
+import { Vehicles } from "../component/vehicles";
 
 export const Single = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
+	let character = store.people.find((item, index) => index == params.theIndex)
+	let planet = store.planets.find((item, index) => index == params.theIndex)
+	let vehicle = store.vehicles.find((item, index) => index == params.theIndex)
+
 	return (
 		<div className="jumbotron">
-			<h1 className="display-4">This will show the demo element: {store.demo[params.theid].title}</h1>
+			{props.category == "character" ? character.name : props.category == "planet" ? planet.name : props.category == "vehicle" ? vehicle.name : "loading"} 
 
-			<hr className="my-4" />
-
-			<Link to="/">
-				<span className="btn btn-primary btn-lg" href="#" role="button">
-					Back home
-				</span>
-			</Link>
 		</div>
 	);
 };

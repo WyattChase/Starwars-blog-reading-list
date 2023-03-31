@@ -15,7 +15,7 @@ export const Home = () => {
         <h2>Characters</h2>
         <div>
           {store.people.map((character, index) => {
-            return <People key={index} char={character} />;
+            return <People key={index} index={index} char={character} />;
           })}
         </div>
       </section>
@@ -24,7 +24,7 @@ export const Home = () => {
         <h2>Planets</h2>
         <div>
           {store.planets.map((world, index) => {
-            return <Planets key={index} planet={world} />;
+            return <Planets key={index} index={index} planet={world} />;
           })}
         </div>
       </section>
@@ -33,7 +33,7 @@ export const Home = () => {
         <h2>Vehicles</h2>
         <div>
           {store.vehicles.map((ship, index) => {
-            return <Vehicles key={index} vehicle={ship} />;
+            return <Vehicles key={index} index={index} vehicle={ship} />;
           })}
         </div>
       </section>
