@@ -19,7 +19,7 @@ export const Vehicles = ({ vehicle, index }) => {
     <div className="card " style={{ width: "18rem", display: "inline-block" }}>
       <img
         className="card-img-top"
-        src={"https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/vehicles/" + (index + 4) + ".jpg?raw=true"}
+        src={"https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/vehicles/.jpg?raw=true"}
         alt="Card image cap"
       ></img>
       <div className="card-body">

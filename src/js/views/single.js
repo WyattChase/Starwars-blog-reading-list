@@ -14,8 +14,17 @@ export const Single = props => {
 
 	return (
 		<div className="jumbotron">
-			{props.category == "character" ? character.name : props.category == "planet" ? planet.name : props.category == "vehicle" ? vehicle.name : "loading"} 
+			{props.category == "character" ? character.name + " " + character.gender + " " + character.height + " " + character.birth_year + " " + character.skin_color + " " + character.hair_color + " " + character.eye_color : 
+			props.category == "planet" ? planet.name + " " + planet.climate + " " + planet.diameter + " " + planet.population + " " + planet.rotation_period + " " + planet.orbital_period : 
+			props.category == "vehicle" ? vehicle.name : "loading"}
 
+			<div>This is the name of a {character.name}</div>
+			{/* {props.category == "character" ? character.gender : props.category == "planet" ? planet.name : props.category == "vehicle" ? vehicle.name : "loading"}
+			{props.category == "character" ? character.height : props.category == "planet" ? planet.name : props.category == "vehicle" ? vehicle.name : "loading"}
+			{props.category == "character" ? character.birth_year : props.category == "planet" ? planet.name : props.category == "vehicle" ? vehicle.name : "loading"}  */}
+			
+			
+			
 		</div>
 	);
 };

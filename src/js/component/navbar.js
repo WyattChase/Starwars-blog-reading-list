@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
+import { Single } from "../views/single"
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Navbar = () => {
+export const Navbar = (index) => {
   const { store, actions } = useContext(Context);
   let favs = store.favorites;
 
@@ -12,16 +13,7 @@ export const Navbar = () => {
         <span className="navbar-brand mb-0 h1">React Boilerplate</span>
       </Link>
       <div className="ml-auto">
-        <Link to="/demo">
-          <a
-            class="active dropdown-toggle"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Favorites
-          </a>
+        <Link to={"/character/details/" + (index + 1) }>
           <div className="dropdown">
             <button
               className="btn btn-warning dropdown-toggle"
