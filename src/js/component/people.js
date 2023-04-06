@@ -12,8 +12,8 @@ export const People = ({ char, index }) => {
   
   
   useEffect(() => {
-    setPeople(store.favPeopleData)
-    }, [store.favPeopleData] // In Here we call out again to keep stored the data on re-load the page
+    setPeople(store.getPeopleData)
+    }, [store.getPeopleData] // In Here we call out again to keep stored the data on re-load the page
     )
 
   return (

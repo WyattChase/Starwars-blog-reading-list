@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	  store: {
 		favorites: [],
 		people: [],
+		peopelecard: [],
 		planets: [],
 		vehicles: [],
 		demo: [],
@@ -44,7 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		removeFavorites: index => { //Remove Favorites Function
 			const store = getStore();
 			let updatedList = store.favorites.filter(
-			(item, i) => index != i
+			(favorites, i) => index != i
 			);
 			setStore({favorites:updatedList})
 			},

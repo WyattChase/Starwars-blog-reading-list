@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Single } from "../views/single"
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Navbar = (index) => {
   const { store, actions } = useContext(Context);
-  let favs = store.favorites;
+  let favs = store.favorites.find;
 
   return (
     <nav className="navbar navbar-light bg-light mb-3">
@@ -13,7 +13,6 @@ export const Navbar = (index) => {
         <span className="navbar-brand mb-0 h1">React Boilerplate</span>
       </Link>
       <div className="ml-auto">
-        <Link to={"/character/details/" + (index + 1) }>
           <div className="dropdown">
             <button
               className="btn btn-warning dropdown-toggle"
@@ -34,11 +33,11 @@ export const Navbar = (index) => {
                   <div key={index}>
                     <a className="align-middle dropdown-item">
                       {item.name}
-                      <span
+                      <button
                         onClick={() => actions.removeFavorites(index)}
                         className="fa fa-trash"
-                      ></span>
-                    </a>
+                      ></button>
+                   </a>
                     <li>
                       <hr className="dropdown-divider" />
                     </li>
@@ -47,7 +46,6 @@ export const Navbar = (index) => {
               })}
             </div>
           </div>
-        </Link>
       </div>
     </nav>
   );

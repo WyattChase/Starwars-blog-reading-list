@@ -5,30 +5,57 @@ import { Context } from "../store/appContext";
 import { Planets } from "../component/planets";
 import { Vehicles } from "../component/vehicles";
 
-export const Single = props => {
-	const { store, actions } = useContext(Context);
-	const params = useParams();
-	let character = store.people.find((item, index) => index == params.theIndex)
-	let planet = store.planets.find((item, index) => index == params.theIndex)
-	let vehicle = store.vehicles.find((item, index) => index == params.theIndex)
+export const Single = (props) => {
+  const { store, actions } = useContext(Context);
+  const params = useParams();
+  let character = store.people.find((item, index) => index == params.theIndex);
+  let planet = store.planets.find((item, index) => index == params.theIndex);
+  let vehicle = store.vehicles.find((item, index) => index == params.theIndex);
 
-	return (
-		<div className="jumbotron">
-			{props.category == "character" ? character.name + " " + character.gender + " " + character.height + " " + character.birth_year + " " + character.skin_color + " " + character.hair_color + " " + character.eye_color : 
-			props.category == "planet" ? planet.name + " " + planet.climate + " " + planet.diameter + " " + planet.population + " " + planet.rotation_period + " " + planet.orbital_period : 
-			props.category == "vehicle" ? vehicle.name : "loading"}
-
-			<div>This is the name of a {character.name}</div>
-			{/* {props.category == "character" ? character.gender : props.category == "planet" ? planet.name : props.category == "vehicle" ? vehicle.name : "loading"}
-			{props.category == "character" ? character.height : props.category == "planet" ? planet.name : props.category == "vehicle" ? vehicle.name : "loading"}
-			{props.category == "character" ? character.birth_year : props.category == "planet" ? planet.name : props.category == "vehicle" ? vehicle.name : "loading"}  */}
-			
-			
-			
-		</div>
-	);
+  return (
+    <div className="jumbotron">
+      <div className="top-half d-flex">
+		{props.category == "character"?( <img
+        className="w-50"
+        src={"https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/characters/" + (parseInt(params.theIndex)+1) + ".jpg?raw=true"}
+        alt="Card image cap"
+      ></img>):props.category == "planet"?(<img
+        className="w-50"
+        src={planet.name == "Tatooine" ? "https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/Tatooine_%28fictional_desert_planet%29.jpg/220px-Tatooine_%28fictional_desert_planet%29.jpg":"https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/planets/" + (parseInt(params.theIndex)+1) + ".jpg?raw=true"}
+        alt="Card image cap"
+      />):"Image Loading..."}
+	 
+        
+        <div className="name-description-section">
+		<h4>{props.category == "character"
+            ? character.name
+            : props.category == "planet"
+            ? planet.name
+            : props.category == "vehicle"
+            ? vehicle.name
+            : "loading"}</h4>
+          
+        </div>
+      </div>
+	  <div className="bottom-half row">
+		<div className="col"> {props.category == "character"
+            ? (<div><h6>Gender: </h6>{character.gender}</div>)
+            : props.category == "planet"
+            ? (<div><h6>Diameter: </h6>{planet.diameter}</div>)
+            : props.category == "vehicle"
+            ? (<div><h6>Model: </h6>{vehicle.model}</div>)
+            : "loading"}</div>
+		<div className="col"></div>
+		<div className="col"></div>
+		<div className="col"></div>
+		<div className="col"></div>
+		<div className="col"></div>
+		<div className="col"></div>
+	  </div>
+    </div>
+  );
 };
 
 Single.propTypes = {
-	match: PropTypes.object
+  match: PropTypes.object,
 };

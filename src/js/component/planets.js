@@ -21,7 +21,7 @@ export const Planets = ({ planet, index }) => {
         className="card-img-top"
         src={planet.name == "Tatooine" ? "https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/Tatooine_%28fictional_desert_planet%29.jpg/220px-Tatooine_%28fictional_desert_planet%29.jpg":"https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/planets/" + (index + 1) + ".jpg?raw=true"}
         alt="Card image cap"
-      ></img>
+      />
       <div className="card-body">
         <h5 className="card-title">{planet.name}</h5>
         <div>Diameter: {planet.diameter} </div>

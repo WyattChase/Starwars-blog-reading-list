@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
+
+
 export const Vehicles = ({ vehicle, index }) => {
   const { store, actions } = useContext(Context);
   let favs = store.favorites.find((fav) => fav.name == vehicle.name);
@@ -19,7 +21,7 @@ export const Vehicles = ({ vehicle, index }) => {
     <div className="card " style={{ width: "18rem", display: "inline-block" }}>
       <img
         className="card-img-top"
-        src={"https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/vehicles/.jpg?raw=true"}
+        src={"https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/vehicles/" + (index + 1) + ".jpg?raw=true"}
         alt="Card image cap"
       ></img>
       <div className="card-body">
