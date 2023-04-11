@@ -8,9 +8,9 @@ export const Navbar = (index) => {
   let favs = store.favorites.find;
 
   return (
-    <nav className="navbar navbar-light bg-light mb-3">
+    <nav className="navbar navbar-black bg-black mb-3">
       <Link to="/">
-        <span className="navbar-brand mb-0 h1">React Boilerplate</span>
+        <span className="navbar-brand mb-0 h1"><img src="https://cdn.worldvectorlogo.com/logos/star-wars.svg"/></span>
       </Link>
       <div className="ml-auto">
           <div className="dropdown">

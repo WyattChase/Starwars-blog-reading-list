@@ -33,7 +33,7 @@ export const Planets = ({ planet, index }) => {
             Learn more!
           </button>
           </Link>
-          <a onClick={() => actions.addFavorites(planet)} className="btn btn-outline-warning fa fa-heart" />
+          <a onClick={() => actions.addFavorites(planet)} className={favs ? "fas fa-heart" : "far fa-heart"}></a>
 
         </div>
       </div>
