@@ -1,9 +1,9 @@
 /* 
     General Styles
 */
-.nav-link {
-    background-color: blue;
-    color: white;
+.btn-primary {
+    background-color: orange;
+    color: black;
 }
 
 

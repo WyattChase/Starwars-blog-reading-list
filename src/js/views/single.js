@@ -69,14 +69,14 @@ export const Single = (props) => {
 		<div className="col">{props.category == "character"
             ? (<div><h6>Skin Color: </h6>{character.skin_color}</div>)
             : props.category == "planet"
-            ? (<div><h6>Population: </h6>{planet.pTerrainopulation}</div>)
+            ? (<div><h6>Population: </h6>{planet.population}</div>)
             : props.category == "vehicle"
             ? (<div><h6>Crew: </h6>{vehicle.crew}</div>)
             : "loading"}</div>
 		<div className="col">{props.category == "character"
             ? (<div><h6>Eye Color: </h6>{character.eye_color}</div>)
             : props.category == "planet"
-            ? (<div><h6>Terrain: </h6>{planet.tClimateerrain}</div>)
+            ? (<div><h6>Terrain: </h6>{planet.terrain}</div>)
             : props.category == "vehicle"
             ? (<div><h6>Passengers: </h6>{vehicle.passengers}</div>)
             : "loading"}</div>
