@@ -6,12 +6,34 @@
     color: black;
 }
 
+h2 {
+    justify-content: center;
+    display: flex;
+    margin-top: 20px;
+
+}
+
+.card-title { 
+    color: #ffc107
+}
+
+.card {
+    margin-left: 20px;
+    margin-top: 20px;
+}
 
 .img {
     margin-left: 200px;
     margin-right: 200px;
     margin-bottom: 50px;
+    margin-top: 100px;
 }
+
+.model, .card-title {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
 
 .bottom-half {
    column-rule-style: solid;
@@ -36,6 +58,8 @@ section {
     color:white;
     
 }
+
+
 
 div, .navbar {
     background-color:black;

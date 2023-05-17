@@ -8,8 +8,7 @@ export const People = ({ char, index }) => {
   const { store, actions } = useContext(Context);
   let favs = store.favorites.find((fav) => fav.name == char.name);
   const [favPeople, setPeople] = useState([]); //UseState run the function from planets (API)
-  
-  
+
   
   useEffect(() => {
     setPeople(store.getPeopleData)

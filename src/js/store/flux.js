@@ -2,16 +2,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 	  store: {
 		favorites: [],
+		apiUrl: 'https://www.swapi.tech/api/',
 		people: [],
 		peopelecard: [],
 		planets: [],
 		vehicles: [],
+		vehicle:[],
 		demo: [],
 	  },
 	  actions: {
 		// Use getActions to call a function within a fuction
-		getData: (entity) => {
-		  fetch(`https://swapi.dev/api/${entity}/`)
+		getData: (entity, id)=> {
+		  fetch(`https://swapi.dev/api/${entity}`)
 			.then((response) => {
 			  if (!response.ok) {
 				throw Error(response.statusText);
@@ -28,7 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  console.log("Looks like there was a problem: \n", error);
 			});
 		},
-
+		
 		addFavorites: (item) => { //Favorites Function
 			const store = getStore(); //Access to the Store
 			store.favorites.push(item) //Push Item

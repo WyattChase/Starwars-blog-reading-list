@@ -7,10 +7,11 @@ export const Navbar = (index) => {
   const { store, actions } = useContext(Context);
   let favs = store.favorites.find;
 
+
   return (
     <nav className="navbar navbar-black bg-black mb-3">
       <Link to="/">
-        <span className="navbar-brand mb-0 h1"><img src="https://cdn.worldvectorlogo.com/logos/star-wars.svg" height={50}/></span>
+        <span className="navbar-brand mb-0 h1"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png" height={70}/></span>
       </Link>
       <div className="ml-auto">
           <div className="dropdown">
