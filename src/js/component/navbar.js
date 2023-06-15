@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Single } from "../views/single"
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { MetaMask } from ".././component/metamask.js";
 
 export const Navbar = (index) => {
   const { store, actions } = useContext(Context);
@@ -13,6 +14,7 @@ export const Navbar = (index) => {
       <Link to="/">
         <span className="navbar-brand mb-0 h1"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png" height={70}/></span>
       </Link>
+      <MetaMask />
       <div className="ml-auto">
           <div className="dropdown">
             <button
